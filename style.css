@@ -311,7 +311,7 @@ p2 {
 }
 
 .team_item {
-    width: 17%;
+    width: 30%;
     padding: 0 15px;
     margin-bottom: 30px;
 }
@@ -322,7 +322,6 @@ p2 {
     height: auto;
     margin-bottom: 20px;
 }
-
 
 .team_name {
     font-size: 22px;
@@ -654,7 +653,7 @@ p2 {
     }
     
     .team_item {
-        width: 17%;
+        width: 30%;
     }
     
     .team_img {
@@ -812,7 +811,7 @@ p2 {
     }
     
     .team_item {
-        width: 16.9%;
+        width: 30%;
     }
     
     /* Reviews___________*/
