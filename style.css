@@ -41,6 +41,17 @@ p{
     z-index: 1000;
 }
 
+.fixed{
+    position: fixed;
+    background-color: #2f324c;
+    height: auto;
+}
+
+.fixed .header__inner{
+    padding: 15px 0;
+    border-bottom: 0;
+}
+
 .header__inner{
     display: flex;
     justify-content: space-between;
@@ -62,16 +73,34 @@ nav{
     text-decoration: none;
     margin-left: 60px;
 
-    transition: opacity .2s linear;
+    
 }
 
 .nav__link:first-child{
     margin-left: 0;
 }
 
+@keyframes nav__link{
+    from{
+        opacity: 1;
+    } to {
+        opacity: .5;
+    }
+}
+
 .nav__link:hover{
-    opacity: 1;
+    animation: nav__link .5s infinite;
+    transition: opacity .2s linear;
     
+}
+
+.btn__logo{
+    display: block;
+    cursor: pointer;
+    background: transparent;
+    position: relative;
+    font-size: 0;
+    border: 0;
 }
 
 .menu{
@@ -82,6 +111,7 @@ nav{
 
 .burger--menu{
     font-size: 32px;
+    color: white;
 }
 
 
@@ -365,34 +395,22 @@ nav{
 
 .reviews{
     overflow: hidden;
-    background-color: #ebe9e9;
+    background-color: #e4dfdf;
 }
 
 .reviews__item{
     display: flex;
     flex-wrap: wrap;
+    
 }
 
 .reviews__photo{
     width: 50%;
-    height: 500px;
-    position: relative;
 }
 
 .reviews__img{
-    position: absolute;
-    top: 50%;
-    right: 0;
-    z-index: 1;
-    transform: translateY(-50%);
-}
-
-.big--img{
-    opacity: 1;
-}
-
-.small--img{
-    opacity: 0;
+    width: 100%;
+    height: 614px;
 }
 
 .reviews__content{
@@ -418,6 +436,45 @@ nav{
     font-weight: bold;
     text-transform: uppercase;
     color: #adafb1;
+}
+
+#slider{
+    height: 614px;
+    overflow: hidden;
+}
+
+.slick-dots{
+    display: flex;
+    justify-content: center;
+    width: 50%;
+    position: absolute;
+    bottom: 0px;
+    right: 0;
+    z-index: 2;
+    margin: 0;
+    padding: 0;
+    padding-bottom: 15px;
+    list-style: none;
+}
+
+.slick-dots li{
+    margin: 0 5px;
+}
+
+.slick-dots button{
+    font-size: 0;
+    border: 0;
+    padding: 0;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    cursor: pointer;
+    background-color: white;
+    opacity: .5;
+}
+
+.slick-dots .slick-active button{
+    opacity: 1;
 }
 
 
@@ -606,25 +663,21 @@ nav{
     }
 
     /* Reviews */
-    .reviews__photo{
-        height: 268px;
+    .reviews__img{
+        height: 450px;
     }
 
-    .big--img{
-        opacity: 0;
-        
-    }
-    .small--img{
-        opacity: 1;
-        z-index: 1;
-    }
-
+    
     .reviews__content{
         padding-left: 30px;
         margin: 0 auto;
     }
     .reviews__text{
         font-size: 18px;
+    }
+
+    #slider{
+        height: auto;
     }
 
     /* Download */
@@ -668,15 +721,55 @@ nav{
 @media (max-width: 720px){
 
     /* Header */
-    .nav{
+    nav{
         display: none;
+        width: 100%;
+        position: absolute;
+        background-color: rgba(255, 255, 255, 0.801);
+        
+        
+    }
+
+    .nav.show{
+        display: flex;
+        top: 60px;
+        left: 0;
+        flex-direction: column;
+        width: 100%;
+        padding: 0 20px;
+        padding-bottom: 15px;
+        border-bottom: 1px solid #505268;
+
+        animation: backInDown;
+        animation-duration: 0.5s;
+    }
+
+    .container.white{
+        background-color: rgba(255, 255, 255, 0.801);
+    }
+
+    .nav.show .nav__link{
+        color: black;
+        font-size: 15px;
+        font-weight: bold;
+        margin-top: 10px;
+        margin-left: 0;
+        
     }
 
     .menu{
         display: block;
     }
 
+    .burger--menu.black{
+        color: black;
+
+        animation: fadeOut;
+        animation-direction: 2s;
+    }
+
     /* Container */
+    
 
     /* Intro */
     .intro__title{
@@ -686,6 +779,7 @@ nav{
     /* Features */
     .features__item{
         width: 100%;
+        padding: 0;
     }
 
     /* Works */
@@ -699,21 +793,44 @@ nav{
     }
 
     /* Reviews */
-    .reviews__item{
-        flex-direction: column;
-        
+    .reviews__photo{
+        width: 100%;
+        overflow: hidden;
     }
+
     .reviews__content{
         width: 100%;
-        margin: 20px 0;
-        padding-left: 0;
+        padding: 0 30px;
+        margin: 15px 0 40px;
+    }
+
+    .reviews__text{
+        margin-bottom: 10px;
+    }
+
+    .slick-dots{
+        width: 100%;
     }
 
     /* Download */
+    .long--btn{
+        padding: 18px 65px;
+    }
 
     /* Footer */
+    .footer__item{
+        width: 100%;
+        margin-bottom: 30px;
+    }
+
+    .footer__item:last-child{
+        margin-bottom: 0;
+    }
 
     /* Copyright */
+    .copyright__text{
+        font-size: 10px;
+    }
     
 }
 
