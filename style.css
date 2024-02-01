@@ -448,7 +448,7 @@ nav{
     justify-content: center;
     width: 50%;
     position: absolute;
-    bottom: 0px;
+    bottom: 0;
     right: 0;
     z-index: 2;
     margin: 0;
@@ -501,7 +501,6 @@ nav{
 .long--btn{
     padding: 18px 84px;
 }
-
 
 /* __________Footer___________ */
 
@@ -765,7 +764,7 @@ nav{
         color: black;
 
         animation: fadeOut;
-        animation-direction: 2s;
+        animation-duration: .2s;
     }
 
     /* Container */
